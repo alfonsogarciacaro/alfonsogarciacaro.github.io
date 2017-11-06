@@ -47,8 +47,8 @@ module Util =
 
 let root = __SOURCE_DIRECTORY__
 
-let gitOwner = "fable-compiler"
-let gitProject = "fableconf"
+let gitOwner = "alfonsogarciacaro"
+let gitProject = "alfonsogarciacaro.github.io"
 
 let dotnetcliVersion = "2.0.0"
 let mutable dotnetExePath = environVarOrDefault "DOTNET" "dotnet"
@@ -67,7 +67,7 @@ Target "Restore" (fun () ->
 )
 
 Target "Build" (fun () ->
-    Util.run (root </> "src") dotnetExePath "fable yarn-build"
+    Util.run root "yarn" "build"
 )
 
 let bumpVersion() =
@@ -90,7 +90,7 @@ let commitAndPush workingDir files message =
     Branches.push workingDir
 
 Target "Publish" (fun () ->
-    let publishBranch = "gh-pages"
+    let publishBranch = "master"
     let publishDir, tempDir = root </> "public", root </> "temp"
     let githubLink = sprintf "https://github.com/%s/%s.git" gitOwner gitProject
 
