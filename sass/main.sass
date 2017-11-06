@@ -1,0 +1,89 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables"
+@import "../node_modules/bulma/sass/utilities/functions"
+@import "../node_modules/bulma/sass/utilities/derived-variables.sass"
+
+// $purple: #7a325d
+// $blue: #0055a4
+$black: #202020
+$family-primary: "Gudea", sans-serif
+
+// $palette: #DBD5B5 #FCAB10 #F8333C #44AF69 #4882E0 #DBD5B5
+// $palette: #c3c3c3 #bfd2cd #bbe1d8 #b7f0e3 #b3ffee #c3c3c3
+// $palette: #bdeefd #87a6f9 #97c3ff #f1fcff #2f43d8 #bdeefd
+$palette: #e8d174 #e39e54 #d64d4d #9ed670 #4d7358 #e8d174
+
+@import '../node_modules/bulma/bulma'
+
+html
+  font-size: 1.1rem
+// .app-container
+  background-color: $black
+
+// Override Bulma tile marging & padding
+.tile.is-parent
+  padding: 0
+  // margin: 0 0.4rem 0.4rem 0
+
+.tile.is-vertical > .tile.is-child:not(:last-child)
+  margin-bottom: 0 !important
+
+.notification:not(.is-warning)
+  h1,h2,h3
+    color: $white
+
+@mixin white-font()
+  p,strong,h1,h2,h3,h4,h5
+    color: $white
+  a
+    &:link
+    &:visited
+    &:hover
+    &:active
+    color: $white
+    text-decoration: underline
+
+.introduction
+  // @include white-font()
+  font-size: 1.2rem
+  background-color: nth($palette, 2)
+  padding: 40px
+  h2
+    text-align: center
+    font-weight: bold
+  p
+    text-align: justify
+
+.quotation
+  @include white-font()
+  font-size: 1.2rem
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  text-align: right
+  padding: 40px
+  background-color: nth($palette, 5)
+  p:first-child
+    font-style: italic
+  p:last-child
+    font-weight: bold
+
+@for $i from 1 through 6
+  .presentation.card-#{$i}
+    $j: $i
+    background-color: nth($palette, $j)
+    @if $j == 3 or $j == 5
+      @include white-font()
+
+@for $i from 1 through 5
+  .demand.card-#{$i}
+    $j: 6 - $i
+    background-color: nth($palette, $j)
+    @if $j == 3 or $j == 5
+      @include white-font()
+
+@for $i from 1 through 5
+  .supply.card-#{$i}
+    $j: 6 - $i
+    background-color: nth($palette, $j)
+    @if $j == 3 or $j == 5
+      @include white-font()
