@@ -9,7 +9,7 @@ nuget Fable.Elmish.React
 nuget Fable.Elmish.Browser
 nuget Fable.Elmish.Debugger
 nuget Fable.Elmish.HMR
-nuget Fulma
+nuget Fulma prerelease
 
 github alfonsogarciacaro/react-cardstack:dist
 
